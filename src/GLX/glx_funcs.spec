@@ -81,7 +81,7 @@ function             "CopyContext"
     glx14ep
 
 function             "CreateContext"
-    returns          "GLXContext"         "None"
+    returns          "GLXContext"         "NULL"
     param            "Display *"          "dpy"
     param            "XVisualInfo *"      "vis"
     param            "GLXContext"         "share_list"
@@ -193,7 +193,7 @@ function             "ChooseFBConfig"
 
 
 function             "CreateNewContext"
-    returns          "GLXContext"         "None"
+    returns          "GLXContext"         "NULL"
     param            "Display *"          "dpy"
     param            "GLXFBConfig"        "config"
     param            "int"                "render_type"
@@ -317,7 +317,7 @@ function             "SelectEvent"
 
 
 function             "GetCurrentContext"
-    returns          "GLXContext"         "None"
+    returns          "GLXContext"         "NULL"
 
 
 function             "GetCurrentDrawable"
