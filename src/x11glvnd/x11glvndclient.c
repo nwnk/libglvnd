@@ -121,7 +121,6 @@ static XEXT_CLOSE_DISPLAY_PROTO(close_display)
 #define CHECK_EXTENSION(dpy, i, val)                \
     do {                                            \
         if (!XextHasExtension(i)) {                 \
-            XMissingExtension(dpy, xglv_ext_name);  \
             UnlockDisplay(dpy);                     \
             SyncHandle();                           \
             return val;                             \
