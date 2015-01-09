@@ -26,13 +26,14 @@
 # MATERIALS OR THE USE OR OTHER DEALINGS IN THE MATERIALS.
 
 noinst_HEADERS = \
-	libglxabi.h \
 	libglxabipriv.h \
 	libglxcurrent.h \
 	libglxmapping.h \
 	libglxnoop.h \
 	libglxgl.h \
 	libglxthread.h
+
+include_HEADERS = libglxabi.h
 
 lib_LTLIBRARIES = libGLX.la
 
