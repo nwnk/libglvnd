@@ -99,6 +99,12 @@ PUBLIC __thread void *u_current[U_CURRENT_NUM_ENTRIES]
         NULL
       };
 
+/* argh compat */
+PUBLIC __thread void *_glapi_tls_Dispatch
+    __attribute((tls_model("initial-exec")));
+PUBLIC __thread void *_glapi_tls_Context
+    __attribute((tls_model("initial-exec")));
+
 #else
 
 PUBLIC void *u_current[U_CURRENT_NUM_ENTRIES]
@@ -194,6 +200,7 @@ u_current_set_user(const void *ptr)
    u_current_init();
 
 #if defined(GLX_USE_TLS)
+   _glapi_tls_Context =
    u_current[U_CURRENT_USER0] = (void *) ptr;
 #elif defined(THREADS)
    u_tsd_set(&u_current_tsd[U_CURRENT_USER0], (void *) ptr);
@@ -238,6 +245,7 @@ u_current_set(const struct mapi_table *tbl)
       tbl = (const struct mapi_table *) table_noop_array;
 
 #if defined(GLX_USE_TLS)
+   _glapi_tls_Dispatch =
    u_current[U_CURRENT_TABLE] = (void *) tbl;
 #elif defined(THREADS)
    u_tsd_set(&u_current_tsd[U_CURRENT_TABLE], (void *) tbl);
